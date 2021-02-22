@@ -26,7 +26,7 @@ apt update && apt install docker-ce docker-ce-cli containerd.io -y
 systemctl start docker 
 systemctl enable docker
 
-docker image build -t ubuntu-ssh /opt/files-oci-4linux/ubuntu/docker-vagrant-4750
+docker image build -t ubuntu-ssh /opt/files-oci-4linux/ubuntu/docker-vagrant
 docker network create --driver bridge --subnet 172.18.0.0/16 dexterlan 
 
 
