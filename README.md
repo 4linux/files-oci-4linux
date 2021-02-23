@@ -1,8 +1,8 @@
-# Oracle Cloud Infraestruture - 4750
+# Oracle Cloud Infrastructure - 4750
 
 ## Provisionando infraestrutura para o curso
 
-Após a criação das instâncias, podemos usar o repositório que contém arquivos e scripts necessário para nosso curso.
+Após a criação das instâncias, podemos usar o repositório que contém os arquivos e scripts necessários para o curso.
 
 Execute os seguintes comandos como usuário administrador, de acordo com cada sistema.
 
@@ -30,7 +30,7 @@ Pronto suas máquinas já estão preparadas para o curso!
 
 ## Criando regras para Subnets
 
-As regras para publicação de portas não são feitas de forma automática, é necessário criá-las para acesso externo na instância.
+As regras para publicação de portas não são feitas de forma automática, é necessário criá-las para acesso externo.
 
 Para isso acesse Core Infra -> Networking -> Virtual Cloud Networks -> VNC padrão -> Subnet -> Security Lists.
 
@@ -61,6 +61,7 @@ Após a criação do volume block já podemos acessá-lo em Core Infra -> Block 
 ![Access Block Volume](imagens/block-volume.png)
 
 Acessando o disco01 -> Attached Instances -> Attach to Instance -> Attach Block Volume.
+Nesta parte podemos selecionar uma das instâncias já criadas e vincular nosso Block Volume. Lembrando que é apenas um por instância na conta trial.
 
 ![Attach Disk](imagens/attach-disk.png)
 
