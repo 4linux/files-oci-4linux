@@ -2,9 +2,9 @@
 
 ## Provisionando infraestrutura para o curso
 
-Após a criação das instâncias, podemos usar o repositório com os scripts da 4Linux.
+Após a criação das instâncias, podemos usar o repositório que contém arquivos e scripts necessário para nosso curso.
 
-Execute os seguintes comandos como usuário ROOT nas instâncias, de acordo com cada sistema:
+Execute os seguintes comandos como usuário administrador, de acordo com cada sistema.
 
 
 ### Ubuntu
@@ -50,7 +50,7 @@ Protocolo | Destination Port | Service
 
 ## Adicionando disco na instância 
 
-Para vincular discos nas instâncias precisamos criar volumes block na menu block storage do painel.
+Para vincular discos nas instâncias, precisamos criar volumes block, no menu block storage do painel.
 
 Para isso acesse Core Infra -> Block Storage -> Block Volumes -> Create Block Volume.
 
@@ -66,12 +66,13 @@ Acessando o disco01 -> Attached Instances -> Attach to Instance -> Attach Block 
 
 *Obs: Selecione o disco01 em Select Volume*
 
-Feito isso podemos executar os comandos gerados para conectar no disposítivo ISCSI em Attach Block Volume -> disco01 -> ISCSI Commands & Information.
+Feito isso podemos executar os comandos gerados, para conectar no disposítivo ISCSI em Attach Block Volume -> disco01 -> ISCSI Commands & Information.
 
 ![ISCSI Commands & Information](imagens/iscsi-commands.png)
 
 *Obs: Os comandos são gerados de acordo com cada dispositivo ISCSI criado.*
 
+\
 Executando os comandos ISCSI, podemos listar o novo dispositivo em nosso sistema.
 
 ```bash
