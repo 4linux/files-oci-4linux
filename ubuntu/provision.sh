@@ -1,28 +1,12 @@
 #!/bin/bash
 
 
-# Vagrant install
+# Vagrant install and others packages
 apt update
-apt install vagrant -y
+apt install vagrant net-tools vim -y
 
 # Docker installation
-apt install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common -y
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sleep 4
-
- add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
-apt update && apt install docker-ce docker-ce-cli containerd.io -y
-
+apt install docker.io
 systemctl start docker 
 systemctl enable docker
 
