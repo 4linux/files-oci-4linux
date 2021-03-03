@@ -2,28 +2,59 @@
 
 ## Provisionando infraestrutura para o curso
 
-Após a criação das instâncias, podemos usar o repositório que contém os arquivos e scripts necessários para o curso.
+Durante a criação das instânicias na OCI, podemos anexar scripts para automatizar a criação e configuração das mesmas.
 
-Execute os seguintes comandos como usuário administrador, de acordo com cada sistema.
+Em Create Compute Instance -> Show Advanced options, anexar os scripts do cloud-init referente a imagem de sistema operacional definida.
 
+![cloud-config startup instance](imgens/../imagens/cloud-config.png)
 
 ### Ubuntu
-```bash
+```yaml
+#cloud-config
 
-cd /opt
-sudo apt update
-sudo apt install git -y
-git clone https://github.com/4linux/files-oci-4linux.git
-sudo bash /opt/files-oci-4linux/ubuntu/provision.sh
+  
+# Packages essentials 4750
+packages:
+  - vim 
+  - net-tools
+  - build-essential
+  - docker.io
+  - vagrant 
+
+# Create the docker group
+groups:
+  - docker
+
+# Add default auto created user to docker group
+system_info:
+  default_user:
+    groups: [docker]
+
+#  Up dockerfile for container ubuntu-ssh
+runcmd:
+  - systemctl start docker
+  - systemctl enable docker
+  - cd /opt
+  - git clone https://github.com/4linux/files-oci-4linux.git
+  - docker network create --driver bridge --subnet 172.18.0.0/16 dexterlan 
+  - docker image build -t ubuntu-ssh /opt/files-oci-4linux/ubuntu/docker-vagrant
 ```
 
 ### CentOS
-```bash
+```yaml
+#cloud-config 
 
-cd /opt
-sudo  yum install git -y
-git clone https://github.com/4linux/files-oci-4linux.git
-sudo bash /opt/files-oci-4linux/centos/provision.sh
+# Disable selinux and firewalld
+
+runcmd:
+  - setenforce 0
+  - sed -i 's/enforcing/disabled/g' /etc/selinux/config
+  - systemctl stop firewalld
+  - systemctl disable firewalld 
+  - cd /opt
+  - yum install git -y
+  - git clone https://github.com/4linux/files-oci-4linux.git
+
 ```
 
 Pronto suas máquinas já estão preparadas para o curso!
