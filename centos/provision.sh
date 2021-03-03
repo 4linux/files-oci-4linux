@@ -4,7 +4,7 @@
 
 setenforce 0
 
-# Disable for file 
+# Disable in file 
 
 sed -i 's/enforcing/disabled/g' /etc/selinux/config
 sleep 2

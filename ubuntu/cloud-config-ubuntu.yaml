@@ -1,22 +1,13 @@
 #cloud-config
 
   
-# Packages essentials
+# Packages essentials 4750
 packages:
   - vim 
   - net-tools
   - build-essential
   - docker.io
-
-
-# Docker full installation 
-packages:
-  - apt-transport-https
-  - ca-certificates
-  - curl
-  - vagrant
-  - gnupg-agent
-  - software-properties-common
+  - vagrant 
 
 # Create the docker group
 groups:
@@ -33,5 +24,6 @@ runcmd:
   - systemctl enable docker
   - cd /opt
   - git clone https://github.com/4linux/files-oci-4linux.git
-  - docker image build -t ubuntu-ssh /opt/files-oci-4linux/ubuntu/docker-vagrant
   - docker network create --driver bridge --subnet 172.18.0.0/16 dexterlan 
+  - docker image build -t ubuntu-ssh /opt/files-oci-4linux/ubuntu/docker-vagrant
+ 

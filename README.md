@@ -2,7 +2,7 @@
 
 ## Provisionando infraestrutura para o curso
 
-Durante a criação das instânicias na OCI, podemos anexar scripts para automatizar a criação e configuração das mesmas.
+Durante a criação das instâncias na OCI, podemos anexar scripts para automatizar a criação e configuração das mesmas.
 
 Em Create Compute Instance -> Show Advanced options, anexar os scripts do cloud-init referente a imagem de sistema operacional definida.
 
